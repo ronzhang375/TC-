@@ -12,6 +12,7 @@ import com.lottery.mall.module.address.domain.AddressInfo;
 import com.lottery.mall.module.address.service.AddressService;
 import com.lottery.mall.module.cart.domain.CartItem;
 import com.lottery.mall.module.cart.service.CartService;
+import com.lottery.mall.module.cart.domain.vo.CartItemVO;
 import com.lottery.mall.module.channel.domain.ChannelInfo;
 import com.lottery.mall.module.channel.service.ChannelService;
 import com.lottery.mall.module.order.domain.OrderItem;
@@ -304,20 +305,5 @@ public class OrderService extends ServiceImpl<OrderMainMapper, OrderMain> {
             case 6: return "已退款";
             default: return "未知";
         }
-    }
-
-    // 内部类用于接收购物车项数据
-    @lombok.Data
-    public static class CartItemVO {
-        private Long cartId;
-        private Long productId;
-        private Long specId;
-        private String productName;
-        private String specName;
-        private String image;
-        private java.math.BigDecimal price;
-        private Integer quantity;
-        private java.math.BigDecimal totalAmount;
-        private Integer stock;
     }
 }

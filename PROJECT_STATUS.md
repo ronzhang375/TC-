@@ -1,248 +1,219 @@
 # 体彩衍生品商城小程序 - 项目进度记录
 
-**最后更新**：2026-06-18
-**项目状态**：核心功能开发完成，待联调测试
+**最后更新**：2026-06-22
+**项目状态**：✅ 三个端全部完成，已推送到 GitHub
 
 ---
 
-## 📁 项目仓库
+## 📁 GitHub 仓库
 
-**GitHub**：https://github.com/ronzhang375/TC-
-**本地目录**：`D:\AI claude\彩票文创商城\lottery-mall-dev`
+**仓库地址**：https://github.com/ronzhang375/TC-
+
+### 分支说明
+
+| 分支 | 内容 | 说明 |
+|------|------|------|
+| `main` | 后端 SpringBoot 代码 | Java + SpringBoot 3 + MyBatis Plus |
+| `lottery-app` | C 端小程序 | UniApp + Vue3 + uView Plus |
+| `admin` | 管理后台 | Vue3 + Element Plus + Vite |
 
 ---
 
-## 📋 已完成的功能模块
+## ✅ 已完成的功能模块
 
-### Phase 1：基础模块（C端）
-| 模块 | 文件 | 说明 |
-|------|------|------|
-| 用户 | `AppUserController`, `AppUserService` | 微信登录、JWT Token |
-| 商品 | `AppProductController`, `ProductService` | 商品列表、详情、规格 |
-| 分类 | `CategoryController`, `CategoryService` | 树形分类 |
-| 收货地址 | `AppAddressController`, `AddressService` | CRUD、默认地址 |
+### 🔧 后端（main 分支）— 8 个 Phase
 
-### Phase 2：交易模块
-| 模块 | 文件 | 说明 |
-|------|------|------|
-| 购物车 | `AppCartController`, `CartService` | 加购、合并下单 |
-| 订单 | `AppOrderController`, `OrderService` | 创建、支付、取消、确认收货 |
-| 订单状态 | — | 待支付→待接单→待发货→配送中→已完成 |
+| Phase | 模块 | 说明 |
+|-------|------|------|
+| Phase 1 | 用户、商品、收货地址 | 微信登录、JWT、商品规格 |
+| Phase 2 | 购物车、订单 | 创建订单、状态机、合并下单 |
+| Phase 3 | 供货商履约、物流 | 接单、发货、物流跟踪 |
+| Phase 4 | 渠道商、佣金 | 订单查询、佣金汇总 |
+| Phase 5 | 运营后台 | 7 个管理 Controller |
+| Phase 6 | JWT 鉴权、微信支付 | 拦截器、支付对接 |
+| Phase 7 | 退款功能 | 申请、审核、退款完成 |
+| Phase 8 | 佣金结算 | 周结/月结账单、结算打款 |
 
-### Phase 3：履约模块（供货商）
-| 模块 | 文件 | 说明 |
-|------|------|------|
-| 供货商 | `SupplierController`, `SupplierService` | 登录、接单、发货 |
-| 物流 | `LogisticsService` | 创建物流、发货、签收 |
-
-### Phase 4：渠道佣金模块
-| 模块 | 文件 | 说明 |
-|------|------|------|
-| 渠道商 | `ChannelController`, `ChannelCommissionService` | 订单查询、佣金汇总 |
-| 佣金 | `ChannelCommissionService` | 佣金计算（订单完成后计算） |
-
-### Phase 5：运营后台
-| 模块 | 文件 | 说明 |
-|------|------|------|
-| 商品管理 | `AdminProductController` | CRUD、上下架、规格管理 |
-| 分类管理 | `AdminCategoryController` | CRUD |
-| 订单管理 | `AdminOrderController` | 分页查询、详情 |
-| 渠道商管理 | `AdminChannelController` | CRUD、启用禁用、二维码 |
-| 供货商管理 | `AdminSupplierController` | CRUD、启用禁用 |
-| 地区管理 | `AdminRegionController` | CRUD |
-| Banner管理 | `AdminBannerController` | CRUD、启用禁用 |
+**后端代码量**：约 70+ Java 文件，32 张数据库表
 
 ---
 
-## 📂 项目结构
+### 📱 C 端小程序（lottery-app 分支）— 13 个页面
+
+| 页面 | 功能 |
+|------|------|
+| pages/index/index | 首页（Banner/分类/推荐） |
+| pages/product/list | 商品列表（搜索/筛选/排序） |
+| pages/product/detail | 商品详情（含规格选择） |
+| pages/cart/index | 购物车 |
+| pages/order/confirm | 确认订单 |
+| pages/order/list | 订单列表 |
+| pages/order/detail | 订单详情 |
+| pages/order/refund | 退款申请 |
+| pages/pay/index | 微信支付 |
+| pages/address/list | 收货地址 |
+| pages/address/edit | 地址编辑（省市区） |
+| pages/user/index | 个人中心 |
+| pages/user/login | 微信授权登录 |
+
+**技术栈**：UniApp + Vue3 + Pinia + uView Plus
+
+---
+
+### 🎨 管理后台（admin 分支）— 11 个页面
+
+| 页面 | 功能 |
+|------|------|
+| Login | 管理员登录 |
+| Dashboard | 工作台（数据统计） |
+| Product/List | 商品管理（CRUD、规格、上下架） |
+| Product/Category | 分类管理（树形） |
+| Order/List | 订单管理 |
+| Order/Refund | 退款审核 |
+| Channel/List | 渠道商管理（含二维码生成） |
+| Supplier/List | 供货商管理 |
+| Bill/List | 佣金账单（含周结/月结生成） |
+| Region/List | 地区管理 |
+| Banner/List | Banner 管理 |
+
+**技术栈**：Vue3 + Element Plus + Vite + Pinia
+
+---
+
+## 📂 本地目录结构
 
 ```
-lottery-mall-dev/
-├── src/main/java/com/lottery/mall/
-│   ├── LotteryMallApplication.java          # 启动类
-│   ├── config/                             # 配置类
-│   │   ├── WebConfig.java                 # CORS、静态资源
-│   │   ├── RedisConfig.java              # Redis序列化
-│   │   ├── JacksonConfig.java            # JSON配置
-│   │   └── MybatisPlusConfig.java       # 分页、自动填充
-│   ├── common/                           # 公共模块
-│   │   ├── core/PageRequest.java         # 分页请求
-│   │   ├── exception/                    # 异常处理
-│   │   ├── result/                      # 统一响应
-│   │   └── util/                        # 工具类（JwtUtils, DateUtils, SecurityUtils）
-│   ├── module/
-│   │   ├── admin/controller/            # 运营后台（7个Controller）
-│   │   ├── address/                    # 收货地址
-│   │   ├── cart/                       # 购物车
-│   │   ├── channel/                    # 渠道商
-│   │   ├── commission/                  # 佣金
-│   │   ├── logistics/                   # 物流
-│   │   ├── marketing/                   # Banner
-│   │   ├── order/                      # 订单
-│   │   ├── product/                    # 商品
-│   │   ├── region/                     # 地区
-│   │   ├── supplier/                   # 供货商
-│   │   └── user/                       # 用户
-│   └── generator/                      # 代码生成基础
-├── sql/
-│   └── init.sql                        # 数据库初始化脚本（32张表）
-├── docker/
-│   ├── Dockerfile                      # Docker构建
-│   └── docker-compose.yml              # MySQL+Redis+App
-├── pom.xml                             # Maven配置
-└── README.md                          # 项目说明
+D:\AI claude\彩票文创商城\
+├── lottery-mall-dev/         # 后端代码（已推送 main）
+├── lottery-mall-app/         # 小程序代码（已推送 lottery-app）
+├── lottery-mall-admin/       # 管理后台（已推送 admin）
+├── node_modules/
+├── generate_*.js              # Word 文档生成脚本
+├── generate_*.py              # 页面生成脚本
+├── package-lock.json
+├── 体彩衍生品商城小程序产品需求文档_V2.0.docx
+├── 体彩衍生品商城小程序-开发规划.docx
+└── 数据库设计文档.md
 ```
 
 ---
 
-## 🗄️ 数据库
+## 🔌 后端 API 接口汇总
 
-**脚本位置**：`sql/init.sql`
-**表数量**：32张
-**初始化内容**：
-- 系统用户（admin/admin123）
-- 角色（超管、运营、供货商、渠道商）
-- 字典数据（订单状态、支付状态、渠道类型等）
-- 默认地区（福州、仓山、莆田）
-- 默认分类（鲜花、玫瑰、康乃馨）
+### C端（/app/）
+- 用户：登录、地址管理
+- 商品：列表、详情、分类
+- 购物车：增删改查
+- 订单：创建、支付、取消、确认收货、退款
+- 支付：统一下单、回调
 
----
+### 供货商（/supplier/）
+- 登录、待接单、接单、发货
 
-## 🔌 API 接口
+### 渠道商（/channel/）
+- 登录、订单查询、佣金汇总、账单
 
-**文档地址**：启动服务后访问 `http://localhost:8080/api/doc.html`
-
-### C端接口（/app/）
-| 接口 | 说明 |
-|------|------|
-| POST /app/user/wx-login | 微信登录 |
-| GET /app/user/info | 获取用户信息 |
-| GET /app/product/list | 商品列表 |
-| GET /app/product/{id} | 商品详情 |
-| GET /app/category/tree | 分类树 |
-| GET /app/address/list | 地址列表 |
-| POST /app/address | 新增地址 |
-| POST /app/cart/add | 加入购物车 |
-| GET /app/cart/list | 购物车列表 |
-| POST /app/order/create | 创建订单 |
-| GET /app/order/list | 订单列表 |
-| PUT /app/order/{id}/cancel | 取消订单 |
-| PUT /app/order/{id}/receive | 确认收货 |
-
-### 供货商接口（/supplier/）
-| 接口 | 说明 |
-|------|------|
-| POST /supplier/login | 供货商登录 |
-| GET /supplier/order/pending | 待接单列表 |
-| PUT /supplier/order/{id}/accept | 接单 |
-| PUT /supplier/order/{id}/ship | 发货 |
-
-### 渠道商接口（/channel/）
-| 接口 | 说明 |
-|------|------|
-| GET /channel/order/list | 我的订单 |
-| GET /channel/commission/summary | 佣金汇总 |
-
-### 运营后台接口（/admin/）
-| 接口 | 说明 |
-|------|------|
-| GET /admin/product/list | 商品管理 |
-| GET /admin/order/list | 订单管理 |
-| GET /admin/channel/list | 渠道商管理 |
-| GET /admin/supplier/list | 供货商管理 |
-| GET /admin/banner/list | Banner管理 |
+### 管理后台（/admin/）
+- 商品、分类、订单、退款、渠道商、供货商、账单、地区、Banner 管理
 
 ---
 
 ## ⚠️ 待完善内容
 
-### 高优先级
-1. **微信支付对接** - `WxPayController` 需实现 JSAPI 统一下单和回调
-2. **JWT Token 中间件** - 接口鉴权拦截器
-3. **数据库表** - `cart_item` 购物车表缺失建表SQL
-4. **商品表补充字段** - `product_info` 缺少部分字段
+### 高优先级（部署前）
+1. 微信支付真实接入（替换 mock 数据）
+2. 微信小程序账号配置
+3. 微信支付商户号配置
+4. 阿里云 OSS 配置（图片存储）
+5. 域名 + HTTPS 证书
 
-### 中优先级
-5. **退款功能** - 退款申请、审核、退款流程
-6. **佣金结算** - 账单生成、定时任务、周结/月结合
-7. **微信公众号对接** - 模板消息通知
-8. **二维码生成** - 渠道商二维码生成逻辑
+### 中优先级（功能完善）
+6. 管理员真实登录接口（当前是 mock）
+7. 数据权限控制（按地区隔离）
+8. 操作日志记录
+9. 报表系统（销售报表、推广报表）
 
-### 低优先级
-9. **报表功能** - 销售报表、渠道推广报表
-10. **活动管理** - 优惠券、满减活动
-11. **会员体系** - 等级、积分
-
----
-
-## 🚀 本地启动
-
-```bash
-# 1. 克隆项目
-git clone https://github.com/ronzhang375/TC-.git
-cd lottery-mall-dev
-
-# 2. 初始化数据库
-mysql -u root -p < sql/init.sql
-
-# 3. 修改配置
-# 编辑 src/main/resources/application-dev.yml
-# 修改数据库连接、Redis配置
-
-# 4. 启动服务
-mvn spring-boot:run
-
-# 5. 访问 API 文档
-http://localhost:8080/api/doc.html
-```
+### 低优先级（二期）
+10. 优惠券/活动管理
+11. 会员体系（等级、积分）
+12. 电子刮刮乐体验
+13. 公众号模板消息
 
 ---
 
-## 🐳 Docker 启动
+## 🚀 部署清单
 
-```bash
-cd docker
-docker-compose up -d
-```
+### 后端
+- JDK 17
+- MySQL 8.0（执行 `sql/init.sql`）
+- Redis 7
+- Maven 构建：`mvn clean package`
+- 启动：`java -jar target/lottery-mall-1.0.0-SNAPSHOT.jar`
+- Docker：`docker-compose up -d`（包含 MySQL + Redis）
 
----
+### 小程序
+- HBuilderX 打开 `lottery-mall-app/`
+- 运行 → 运行到小程序模拟器 → 微信开发者工具
+- 修改 `src/utils/request.js` 中的 BASE_URL
 
-## 📝 Git 提交记录
-
-```
-commit 7345b61 - feat: Phase 5 运营后台模块
-commit 7ead260 - feat: Phase 4 渠道商佣金模块
-commit a3808cc - feat: Phase 3 供货商履约模块
-commit b1546af - feat: Phase 2 购物车和订单模块
-commit 8746a14 - feat: Phase 1 基础模块开发
-commit acbed55 - feat: 添加数据库初始化脚本
-commit dbc3c02 - feat: 初始化项目骨架
-```
-
----
-
-## 🔄 继续开发命令
-
-```bash
-# 拉取最新代码
-git clone https://github.com/ronzhang375/TC-.git lottery-mall-dev
-cd lottery-mall-dev
-
-# 查看当前进度
-cat PROJECT_STATUS.md
-
-# 查看待办
-cat TODO.md
-```
+### 管理后台
+- 进入 `lottery-mall-admin/`
+- `npm install`
+- `npm run dev` → 访问 `http://localhost:8081`
+- 后端代理已配置（`/api → http://localhost:8080`）
 
 ---
 
-## 📞 文档位置
+## 📊 项目统计
 
-| 文档 | 路径 |
+| 项目 | 数量 |
 |------|------|
-| 本进度记录 | `lottery-mall-dev/PROJECT_STATUS.md` |
-| 产品需求文档 | `..\体彩衍生品商城小程序产品需求文档_V2.0.docx` |
-| 开发规划 | `..\体彩衍生品商城小程序-开发规划.docx` |
-| 前端开发提示词 | `C:\Users\ron37\.claude\plans\体彩衍生品商城小程序-前端开发提示词.md` |
-| 数据库设计 | `..\数据库设计文档.md` |
+| Java 后端类文件 | 70+ |
+| 数据库表 | 32 张 |
+| 小程序 Vue 页面 | 13 个 |
+| 管理后台 Vue 页面 | 11 个 |
+| API 接口模块（前后端） | 30+ |
+| Git 提交次数（后端） | 10+ |
+
+---
+
+## 📝 后续开发命令
+
+```bash
+# 克隆项目
+git clone https://github.com/ronzhang375/TC-.git
+cd TC-
+
+# 查看后端代码
+git checkout main
+
+# 查看小程序
+git checkout lottery-app
+
+# 查看管理后台
+git checkout admin
+```
+
+---
+
+## 🎉 项目总结
+
+```
+需求阶段 ✅  PRD V2.0
+  ↓
+设计阶段 ✅  数据库设计（32表） + 技术选型
+  ↓
+后端开发 ✅  8 个 Phase，70+ 文件
+  ↓
+小程序 ✅  13 个页面，完整交易闭环
+  ↓
+管理后台 ✅  11 个页面，完整运营管理
+  ↓
+待部署 ⏳  微信支付、域名、备案
+```
+
+整个项目从需求梳理到三个端代码实现，**全部完成并推送到 GitHub**！
+
+---
+
+**下次继续任务时，直接告诉我「继续开发」即可，我会从最新进度开始！**
