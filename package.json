@@ -1,0 +1,24 @@
+{
+  "name": "lottery-mall-app",
+  "version": "1.0.0",
+  "description": "体彩衍生品商城小程序",
+  "main": "main.js",
+  "scripts": {
+    "dev:mp-weixin": "uni -p mp-weixin",
+    "build:mp-weixin": "uni build -p mp-weixin"
+  },
+  "dependencies": {
+    "@dcloudio/uni-app": "^3.0.0-3081220230817001",
+    "@dcloudio/uni-app-plus": "^3.0.0-3081220230817001",
+    "@dcloudio/uni-h5": "^3.0.0-3081220230817001",
+    "@dcloudio/uni-mp-weixin": "^3.0.0-3081220230817001",
+    "pinia": "^2.1.7",
+    "uview-plus": "^3.3.62"
+  },
+  "devDependencies": {
+    "@dcloudio/uni-cli-shared": "^3.0.0-3081220230817001",
+    "@dcloudio/vite-plugin-uni": "^3.0.0-3081220230817001",
+    "vite": "^4.0.0",
+    "sass": "^1.69.5"
+  }
+}
