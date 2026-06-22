@@ -74,6 +74,14 @@ public class DateUtils {
     }
 
     /**
+     * 生成账单号
+     */
+    public static String generateBillNo(String type) {
+        String prefix = "week".equals(type) ? "W" : "M";
+        return prefix + format(now(), YYYYMMDDHHMMSS) + String.format("%04d", (int) (Math.random() * 10000));
+    }
+
+    /**
      * 格式化日期为字符串
      */
     public static String formatDate(Date date, String pattern) {
