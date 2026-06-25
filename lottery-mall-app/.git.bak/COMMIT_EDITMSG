@@ -1,0 +1,8 @@
+feat: UniApp 小程序（13个页面 + Pinia + API）
+
+- 首页/商品列表/商品详情（含规格选择）
+- 购物车/确认订单/支付/订单列表/订单详情/退款
+- 收货地址（列表/编辑/省市区选择）
+- 个人中心/微信登录
+- Pinia stores（user/cart）
+- API 接口封装（user/product/cart/order）

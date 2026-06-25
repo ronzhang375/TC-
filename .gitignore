@@ -1,0 +1,31 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Maven & Build Temp
+apache-maven-3.6.3-temp/
+apache-maven-3.9.6/
+maven.zip
+*.zip
+target/
+*.class
+
+# IDE & Editor files
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS files
+Thumbs.db
+EHthumbs.db
+Desktop.ini
+
+# Logs
+logs/
+*.log

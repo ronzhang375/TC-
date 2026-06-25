@@ -1,0 +1,24 @@
+{
+  "name": "体彩衍生品商城",
+  "appid": "__UNI__LOTTERY_MALL",
+  "description": "体彩衍生品商城小程序",
+  "versionName": "1.0.0",
+  "versionCode": "100",
+  "transformPx": false,
+  "h5": {
+    "title": "体彩衍生品商城",
+    "router": {
+      "mode": "hash"
+    },
+    "devServer": {
+      "port": 5173
+    }
+  },
+  "mp-weixin": {
+    "appid": "",
+    "setting": {
+      "urlCheck": false
+    },
+    "usingComponents": true
+  }
+}

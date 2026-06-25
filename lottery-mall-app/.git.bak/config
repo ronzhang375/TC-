@@ -1,0 +1,16 @@
+[core]
+	repositoryformatversion = 0
+	filemode = false
+	bare = false
+	logallrefupdates = true
+	symlinks = false
+	ignorecase = true
+[user]
+	name = ronzhang375
+	email = ronzhang375@gmail.com
+[remote "origin"]
+	url = https://github.com/ronzhang375/TC-.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "lottery-app"]
+	remote = origin
+	merge = refs/heads/lottery-app

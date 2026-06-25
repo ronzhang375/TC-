@@ -1,0 +1,29 @@
+# 应用配置
+spring:
+  application:
+    name: lottery-mall
+  profiles:
+    active: dev
+  # 导入其他配置
+  config:
+    import: optional:file:./config/application.yml
+
+# 端口
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+# MyBatis Plus 配置
+mybatis-plus:
+  mapper-locations: classpath*:mapper/**/*.xml
+  type-aliases-package: com.lottery.mall.generator.domain
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-field: delFlag
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
