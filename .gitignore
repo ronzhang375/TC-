@@ -4,16 +4,36 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Maven & Build Temp
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
 apache-maven-3.6.3-temp/
 apache-maven-3.9.6/
 maven.zip
 *.zip
-target/
 *.class
 
-# IDE & Editor files
+# Eclipse
+.settings/
+.classpath
+.project
+
+# IntelliJ IDEA
 .idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# VS Code
 .vscode/
 *.suo
 *.ntvs*
@@ -21,11 +41,26 @@ target/
 *.sln
 *.sw?
 
-# OS files
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+
+# OS
+.DS_Store
 Thumbs.db
 EHthumbs.db
 Desktop.ini
 
-# Logs
-logs/
-*.log
+# Docker
+docker/*.log
+
+# Application
+application*.yml
+!application.yml
+!application-dev.yml
+!application-prod.yml
